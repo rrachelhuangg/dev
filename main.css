@@ -20,10 +20,6 @@ html {
   font-family: "Varela Round", sans-serif;
 }
 
-a{
-    text-decoration: none;
-}
-
 /*nav bar*/
 .menu {
   display: flex;
@@ -89,7 +85,7 @@ a{
 }
 
 .spacer{
-    padding-top:1.95%;
+    padding-top:1%;
 }
 
 /* Card Container */
@@ -97,9 +93,9 @@ a{
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-    gap: 5%;
+    gap: 2%;
     padding-left:10%;
-    padding-right:10%;
+    padding-right:10%; 
 }
 
 /* Card styles */
@@ -107,7 +103,8 @@ a{
     background-color: #fff;
     border-radius:1%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 35%;
+    width:350px;
+    height:425px;
     overflow: hidden;
     text-align: center;
     transition: transform 0.2s;
@@ -127,13 +124,12 @@ a{
 
 .card-content {
     flex: 1;
-    /* padding: 4.5%; */
     padding-left:4.5%;
     padding-right:4.5%;
     padding-top:3.5%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .card-title {
@@ -165,4 +161,8 @@ hr{
     height:2px;
     color:#000700;
     background-color: #000700;
+}
+
+a{
+  text-decoration: none;
 }
