@@ -70,17 +70,22 @@ html {
     margin-right: 3.5%;
 }
 
+.row{
+  display: flex;
+}
+
 .headshot{
-    margin-top:1%;
-    margin-bottom:1%;
-    margin-right:7.5%;
-    width:12%;
-    margin-left:10.5%;
+    width:175%;
+    padding-top:12.5%;
     float:left;
 }
 
+#imageColumn{
+  margin-left:10%;
+}
+
 #textColumn{
-    margin-right:9%;
+    margin-right:10%;
     margin-left:8%;
 }
 
