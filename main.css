@@ -65,9 +65,12 @@ html {
 }
 /*end of nav bar*/
 
+#main_header{
+  margin-left:20.4%;
+}
+
 #header{
     margin-left:10%;
-    margin-right: 3.5%;
 }
 
 .row{
@@ -75,22 +78,21 @@ html {
 }
 
 .headshot{
-    width:175%;
-    padding-top:12.5%;
+    width:70%;
+    padding-top:5%;
     float:left;
 }
 
 #imageColumn{
-  margin-left:10%;
+  margin-left:20.5%;
 }
 
 #textColumn{
-    margin-right:10%;
-    margin-left:8%;
+    margin-right:21.5%;
 }
 
 .spacer{
-    padding-top:1%;
+    padding-top:1.75%;
 }
 
 /* Card Container */
@@ -159,7 +161,7 @@ html {
     text-align: center;
 }
 
-hr{
+#content_divider{
     width:60%;
     margin:auto;
     border:none;
@@ -168,12 +170,21 @@ hr{
     background-color: #000700;
 }
 
+.main_divider{
+  width:58%;
+  border:none;
+  height:7px;
+  background:repeating-linear-gradient(to right, #2fdef5, #2fdef5 20%, #15b015 20%, #15b015 40%, #ff3838 40%, #ff3838 60%, #ba12fc 60%, #ba12fc 80%, #fc9f12 80%, #fc9f12 100%);
+  margin-left:20.5%;
+  opacity:80%;
+}
+
 a{
   text-decoration: none;
 }
 
 #imageGrid{
-  margin-left:22.5%;
+  margin-left:20.5%;
 }
 
 .imageCell{
