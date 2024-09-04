@@ -17,11 +17,113 @@
       </ul>
     </nav>
     <main>
-        <h2 class = "title">Optimizing Measurement-based Quantum Circuits</h2>
+        <h2 class = "title">Exploring the Optimization of Measurement-Based Quantum Circuits Using ZX-Calculus</h2>
         <div class = "spacer"></div>
         <div class = "description">Monroe Scholar Summer Research Project, 2024</div>
+        <div class = "description">Funded by the William & Mary Monroe Scholar program</div>
+        <div class = "description">Mentored by Professor Qun Li</div>
+        <div class = "description"><a href = "https://docs.google.com/presentation/d/1ADvJw-ZBapKnh5lXL8_ry4omAZZHn5s8vD5Zgae-PH0/edit#slide=id.p">Presentation</a> for the William & Mary Fall 2024 Research Symposium</div>
         <div class = "spacer"></div>
         <hr id = "content_divider">
+        <div class ="paragraph">
+          Quantum computing developed out of the realization that decreasing transistor sizes were quickly approaching physical limitations. Quantum computing surpasses these limitations by using subatomic particles to store information. These particles are termed qubits, and exist in a superposition of two states, 0 or 1. The state of a qubit is only determined when it is measured, as it is so delicate that performing the measurement causes the qubit’s superposition to collapse to a single value. Gate-model quantum circuits were the first implementation of quantum computing, and are similar to traditional computing circuits. However, this implementation does not really take into account the properties of quantum circuits. Measurement-based quantum computing, or MBQC for short, takes a different approach. Measurements, rather than gates, are performed on a cluster state of qubits to implement quantum computations. Since MBQC is a relatively new method of quantum computing, there is significant potential for optimizing the compilers that map quantum circuits to desired hardware, such as photon clusters (Li et al., 2023). This research explores the optimization potential of ZX-calculus, a circuit diagramming language, and lays out an end-to-end method of applying ZX-calculus to MBQC.
+        </div>
+        <div class = "paragraph">
+          To optimize a measurement-based quantum circuit with ZX-calculus, a quantum circuit must first be in measurement pattern form. Measurement patterns require an entangled set of qubits upon which measurements are applied. Converting an initial circuit from gate-model form to this entangled resource state is straightforward and based on the equivalence of quantum gates to measurement patterns. The universal quantum gate set consists of fundamental quantum gates that can be used to construct more complex gates. The universal quantum gate set consists of the X, Y, Z, H, and CNOT gate (Vazirani, 2018). The effect of applying the single-qubit gates X, Y, Z, and H, can be conceptualized as rotations of the qubit along the Bloch sphere. The Bloch sphere is a standard three-axis, three-dimensional sphere, except the positive Z axis represents the 0 state, the negative Z axis represents the 1 state, and the X axis represents an equal superposition of the 0 and 1 state (Vazirani, 2018).
+          <div>
+            <img src="../images/bloch_sphere.png" class="inline_image">
+          </div>
+          <div class = "caption">
+            Fig. 1. Visualization of the Bloch sphere and key states, a three-dimensional geometric representation of a two-dimensional quantum system.
+          </div>
+        </div>
+        <div class = "paragraph">
+          The universal quantum gate set can be represented by the set U, where U = {J(α), ∧Z}. J(α) is a rotation of angle α, and ∧Z is the two-qubit entangling CNOT gate (Broadbent & Kashefi, 2007). The elements in the set U are equivalent to the MBQC measurement patterns described by the equations below. 
+          <div>
+            <img src="../images/circuit_pattern_eqs.png" class="inline_image">
+          </div>
+          <div class = "caption">
+            X<sub>j</sub><sup>s<sub>i</sub></sup> is a dependent correction on qubit j based on the resultant measurement s<sub>i</sub> of qubit i, obtained by the measurement of qubit i via M<sub>i</sub><sup>-α</sup>. i and j are temporally sequential qubits (Broadbent & Kashefi, 2007).
+          </div>
+        </div>
+        <div class = "paragraph">
+          These two equations are derived from P = e<sup>iα</sup>J(0)J(β)J(γ)J(δ), where P is an arbitrary single-qubit gate (Broadbent & Kashefi, 2007). This is due to the fact that every single-qubit rotation θ can be decomposed into 3 Euler angles β, γ, and δ. 
+        </div>
+        <div class = "paragraph">
+          The creation of the entangled resource state can also be graphically represented.
+          <div>
+            <img src="../images/resource_state_creation.png" class="inline_image">
+          </div>
+          <div class = "caption">
+            Fig 2. An initial circuit in gate-model form is shown and graphically transformed into its corresponding resource state by replacing each ∧Z gate by a vertical edge, and each J gate with a horizontal edge. Vertices are then contracted and labeled, with input qubits being represented by a boxed vertex and output qubits represented by a white vertex in the final graph. The black qubits in the final graph are measured with the labeled angles (Broadbent & Kashefi, 2007).
+          </div>
+        </div>
+        <div class = "paragraph">
+          After the entangled resource state is created, a single-qubit gate can be implemented as a single-qubit measurement by expanding upon the concept of single-qubit teleportation.
+          <div>
+            <img src="../images/gate_to_measurement.png" class="inline_image">
+          </div>
+          <div class = "caption">
+            Fig 3. The gate-model implementation of fundamental quantum teleportation is shown as the initial circuit state. Certain gates are then replaced and measurement operations are applied to create an entangled state. Measuring this entangled gate as specified corresponds to the application of the single-qubit gate HZ(α). To complete the implementation of any arbitrary rotation P(θ), this process can be concatenated three times to create the final measurement sequence displayed by the final circuit diagram (Kok, 2010).
+          </div>
+        </div>
+        <div class = "paragraph">
+          ZX-calculus, a diagramming language used to represent and manipulate measurement-based quantum circuits, can now be applied.
+          <div>
+            <img src="../images/ZX_rules.png" class="inline_image">
+          </div>
+          <div class = "caption">
+            Fig 4. Translating a quantum computation into its ZX-diagram format is a straightforward process where operations are replaced by their corresponding ZX symbols. The ZX-diagram can then be rearranged and simplified using ZX-rewrite rules (Wetering, 2020).
+          </div>
+          <div>
+            <img src="../images/example_one.png" class="inline_image">
+          </div>
+          <div class = "caption">
+            Fig 5. A single-qubit Z rotation gate is translated into a ZX-diagram through the rules provided by Fig. 4. The Z gate is essentially replaced by its corresponding ZX symbol, and then expanded using ZX-rewrite rules until the effect of the Z rotation gate is implemented by a series of measurements (Stollenwerk & Hadfield, 2024). 
+          </div>
+        </div>
+        <div class = "paragraph">
+          The measuring pattern for ZX-diagrams can be directly derived from the diagram.
+          <div>
+            <img src="../images/complete_example.png" class="inline_image">
+          </div>
+          <div class = "caption">
+            Fig 6. The final ZX-diagram for an implementation of QAOA in measurement-based computing form is shown with its corresponding measurement pattern. u and v are two arbitrary qubits, the n’s are the measurements from the previous layer, and the m’s are the measurements from the current QAOA layer. The primes indicate different measurement outcomes (Stollenwerk & Hadfield, 2024). 
+          </div>
+          <div>
+            <img src="../images/clear_simplification.png" class="inline_image">
+          </div>
+          <div class = "caption">
+            Fig 7. The simplification of an arbitrary circuit with ZX-calculus rewrite rules can be seen above for the example gate-model circuit above and its equivalent ZX-diagrams (Staudacher, 2021).
+          </div>
+        </div>
+        <div class = "paragraph">
+          The final ZX-diagram can be converted back into a gate-model circuit to clearly see the reduction of gates by applying an extraction process. 
+          <div>
+            <img src="../images/circuit_extraction.png" class="inline_image">
+          </div>
+          <div class = "caption">
+            Fig. 8. The extraction process consists of dividing a ZX-diagram into an unextracted and extracted section so that they are divided by a set of spiders, known as a frontier. The spiders are pulled through the unextracted section to the extracted selection by working with the biadjacency matrix and applying the corresponding row operations to the diagram. This process is repeated until only input spiders are left in the unextracted section. The extracted section is now in a circuit-like form and can be directly converted to a circuit by replacing equivalent components (Staudacher, 2021).
+          </div>
+        </div>
+        <div class = "paragraph">
+          The circuit in Fig. 8 is equivalent to the circuit in Fig. 7, except it uses nine less single-qubit gates and two less two-qubit gates.
+        </div>
+        <div class = "paragraph">
+          The application of ZX-calculus to measurement-based quantum circuits is straightforward, and has significant optimization potential for compilers that map quantum circuits to computational hardware (Li et al., 2023). Working towards the optimization of real-world circuits with ZX-calculus, researchers are implementing ZX-diagram simplification with code and testing it on quantum circuits that implement computing problems from fields such as chemistry, machine learning, and cryptography (Staudacher, 2021). There is also significant potential for extending the ZX-calculus method, as it can be guided by heuristics such as maximizing the resultant number of Hadamard wires (Staudacher, 2021).
+        </div>
+        <div class="spacer"></div>
+        <div class = "paragraph" style="margin-left:30%; margin-right:25%;">
+          <span style = "margin-left:36%;">References</span><br><div class="spacer"></div>
+            Broadbent, A., & Kashefi, E. (2007). Parallelizing Quantum Circuits. <br><div class="spacer"></div>
+            Kok, P. (2010). Five Lectures on Optical Quantum Computing. https://doi.org/10.1007/978-3-642-02871-7 7 <br><div class="spacer"></div>
+            Li, Y., Pawar, A., Azari, M., Guo, Y., Zhang, Y., Yang, J., Seshadreesan, K. P., & Tang, X. (2023). Orchestrating Measurement-Based Quantum Computation over Photonic Quantum Processors. https://doi.org/10.1109/DAC56929.2023.10247944 <br><div class="spacer"></div>
+            Staudacher, K. (2021). Optimization Approaches for Quantum Circuits using ZX-calculus (thesis). Retrieved August 31, 2024, from https://www.mnm-team.org/pub/Diplomarbeiten/stau21/PDF-Version/stau21.pdf. <br><div class="spacer"></div>
+            Stollenwerk, T., & Hadfield, S. (2024). Measurement-Based Quantum Approximate Optimization. <br><div class="spacer"></div>
+            Vazirani. (2018). Quantum Computing. YouTube. https://www.youtube.com/playlist?list=PLXEJgM3ycgQW5ysL69uaEdPoof4it6seB <br><div class="spacer"></div>
+            Wetering, J. van de. (2020). ZX-Calculus for the Working Quantum Computer Scientist. <br><div class="spacer"></div>
+        </div>
+        <div class="footer"></div>
     </main>
 	<script src="main.js"></script>
   </body>

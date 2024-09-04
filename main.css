@@ -95,6 +95,30 @@ html {
     padding-top:1.75%;
 }
 
+.line_break{
+  padding-top:1%;
+}
+
+.paragraph{
+  margin-left:20%;
+  margin-right:19.5%;
+  margin-top:1%;
+  margin-bottom:1%;
+}
+
+.inline_image{
+  width:30%;
+  margin-left:34%;
+  margin-top:2%;
+  margin-bottom:1%;
+}
+
+.caption{
+  margin-left:23%;
+  margin-right:22.5%;
+  font-size:smaller;
+}
+
 /* Card Container */
 .card-container {
     display: flex;
@@ -231,6 +255,6 @@ a{
   opacity: 1;
 }
 
-#footer{
-  margin-bottom:10%;
+.footer{
+  padding-bottom:10%;
 }
