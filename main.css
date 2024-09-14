@@ -285,7 +285,7 @@ a{
 .button-23:hover{
   background: linear-gradient(to right, rgb(135, 206, 250), rgb(135, 206, 250)) no-repeat;
   background-size: 0% 100%;
-  animation: fillBackground 0.9s forwards;
+  animation: fillBackground 0.5s forwards;
 }
 
 .button-23:disabled {
@@ -331,7 +331,7 @@ a{
 .cv-box:hover{
   background: linear-gradient(to right, rgb(135, 206, 250), rgb(135, 206, 250)) no-repeat;
   background-size: 0% 100%;
-  animation: fillBackground 3s forwards;
+  animation: fillBackground 1.5s forwards;
 }
 
 @keyframes fillBackground {
