@@ -251,7 +251,20 @@ a:hover{
 }
 
 .footer{
-  padding-bottom:10%;
+  padding-top:5%;
+  padding-bottom:5%;
+  font-size:0.9em;
+  text-align: center;
+}
+
+.footer_emoji_container{
+  font-size:0.9em;
+  padding-top:10%;
+}
+
+.footer_emoji_container img.footer_emoji{
+  height:1.5em;
+  vertical-align: top;
 }
 
 .button-23 {
