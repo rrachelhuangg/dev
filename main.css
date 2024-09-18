@@ -367,3 +367,39 @@ a:hover{
   border-top: 0;
   border-bottom: 0;
 }
+
+.download-button {
+  background-color: #fbfbfb;
+  border: 1px solid #222222;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 450;
+  line-height: 20px;
+  margin-left:1%;
+  outline: none;
+  padding: 9px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+  margin-top:1.05%;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+}
+
+.download-button:active {
+  background-color: #F7F7F7;
+  border-color: #000000;
+  transform: scale(.96);
+}
+
+.download-button:hover{
+  background: linear-gradient(to right, rgb(135, 206, 250), rgb(135, 206, 250)) no-repeat;
+  background-size: 0% 100%;
+  animation: fillBackground 0.4s forwards;
+}
