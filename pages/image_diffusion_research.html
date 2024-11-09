@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ML Research</title>
     <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../main.css">
   </head>
   <body>
@@ -14,17 +13,52 @@
         <ul class="menu">
             <li><a href="../index.html" class="button-23">About</a></li>
             <li><a href="cv.html" class="button-23">CV</a></li>
-            <li><a href="projects.html" class="button-23">Projects</a></li> 
+            <li><a href="projects.html" class="button-23">Projects</a></li>
+            <li><a href="https://github.com/rrachelhuangg" class="button-23" style = "margin-left:25%;">Github</a></li>
         </ul>
     </nav>
     <main>
-        <div class = "title">Undergraduate Machine Learning Research</div>
+        <div class = "title">Extending Matfusion Image Diffusion Model</div>
         <div class = "spacer"></div>
         <div class = "description">Mentored by W&M Professor Pieter Peers, Department of Computer Science</div>
         <div class = "spacer"></div>
         <hr class = "main_divider">
         <div class ="paragraph">
             Current task: Extending <a href = "https://github.com/samsartor/matfusion?tab=readme-ov-file">Matfusion</a> to be able to produce tileable SVBRDF's.
+            <div>Code Branch on W&M's Gitlab: <a href="https://code.wm.edu/slsartor/matfusion_source/-/tree/rachel_inpainting?ref_type=heads">rachel_inpainting</a></div>
+        </div>
+        <div class ="paragraph">
+            Experiment Artifacts:
+        </div>
+        <div class ="paragraph">
+            <img src = "../images/1_result_2.png" style="width:70%"/> <div>Mask size: 0%-40%</div>
+        </div>
+        <div class = "spacer"></div>
+        <div class ="paragraph">
+            <img src = "../images/1_result_3.png" style="width:70%"/> <div>Mask size: 0%-40%</div>
+        </div>
+        <div class = "spacer"></div>
+        <div class ="paragraph">
+            <img src = "../images/2_result_3.png" style="width:70%"/> <div>Mask size: 5%-10%</div>
+        </div>
+        <div class = "spacer"></div>
+        <div class ="paragraph">
+            Training the Matfusion unconditional model to inpaint did not seem to be working, so subsequent model debugging was executed:
+        </div>
+        <div class ="paragraph">
+            Optimizing the learning rate:
+        </div>
+        <div class = "spacer"></div>
+        <div class ="paragraph">
+            <img src = "../images/cook_false_improvement.png" style="width:45%"/> <div>False improvement loss function</div>
+        </div>
+        <div class = "spacer"></div>
+        <div class ="paragraph">
+            <img src = "../images/better_looking_loss_function.png" style="width:70%"/> <div>Loss function after optimizing learning rate</div>
+        </div>
+        <div class = "spacer"></div>
+        <div class ="paragraph">
+            <img src = "../images/double_checking_overfitting_original_mask_code_309k_output.png" style="width:70%"/> <div>Overfitting on a single image to confirm that the model actually learns properly.</div>
         </div>
         <div class ="paragraph">
             Presentation on neural network concepts: <a href = "https://drive.google.com/file/d/1renY4Z3xqgI9rKrycKWf5tq9bS4rGqsh/view?usp=sharing">Neural Network Architecture</a>. 
